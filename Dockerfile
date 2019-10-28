@@ -16,6 +16,7 @@ RUN gem install gollum \
 RUN apk del build-deps \
 	&& rm /etc/apk/repositories
 
+WORKDIR /wiki
 # create a volume and
 ENTRYPOINT ["/bin/sh", "-c", "git init && gollum /wiki"]
 CMD ["--allow-uploads","page","--live-preview"]
